@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emisión de Eventos</title>
+</head>
+<body>
+    <p id="mensaje">Presiona la tecla "A".</p>
+
+    <script>
+        const mensaje = document.getElementById("mensaje");
+
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "a" || event.key === "A") {
+                const eventoTecla = new CustomEvent("teclaA", {
+                    detail: { mensaje: "Tecla A presionada" }
+                });
+                document.dispatchEvent(eventoTecla);
+            }
+        });
+
+        document.addEventListener("teclaA", function(event) {
+            mensaje.textContent = event.detail.mensaje;
+        });
+    </script>
+</body>
+</html>

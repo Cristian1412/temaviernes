@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos del Navegador</title>
+</head>
+<body>
+    <p id="dimension">Tamaño de la ventana: </p>
+    <p id="visibilidad">Estado de la página: Activa</p>
+
+    <script>
+        const dimensionTexto = document.getElementById("dimension");
+        const visibilidadTexto = document.getElementById("visibilidad");
+
+        window.addEventListener("resize", function() {
+            dimensionTexto.textContent = `Tamaño de la ventana: ${window.innerWidth}px x ${window.innerHeight}px`;
+        });
+
+        document.addEventListener("visibilitychange", function() {
+            if (document.hidden) {
+                visibilidadTexto.textContent = "Estado de la página: En segundo plano";
+            } else {
+                visibilidadTexto.textContent = "Estado de la página: Activa";
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evento Personalizado</title>
+</head>
+<body>
+    <div id="mensaje">Bienvenido</div>
+    <button id="miBoton">Activar Evento Personalizado</button>
+
+    <script>
+        const boton = document.getElementById("miBoton");
+        const mensaje = document.getElementById("mensaje");
+
+        const miEventoPersonal = new CustomEvent("miEventoPersonal");
+
+        mensaje.addEventListener("miEventoPersonal", function() {
+            mensaje.textContent = "Evento personalizado activado";
+        });
+
+        boton.addEventListener("click", function() {
+            mensaje.dispatchEvent(miEventoPersonal);
+        });
+    </script>
+</body>
+</html>

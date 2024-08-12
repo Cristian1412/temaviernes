@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propagación de Eventos</title>
+</head>
+<body>
+    <div style="background-color: lightblue; padding: 30px;">
+        <div style="background-color: lightgreen; padding: 20px;">
+            <div style="background-color: lightcoral; padding: 10px;">
+                Haz clic en cualquiera de los tres divs.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const divs = document.querySelectorAll("div");
+
+        divs.forEach((div, index) => {
+            div.addEventListener("click", function(event) {
+                console.log(`Div nivel ${index + 1} clicado`);
+            });
+        });
+    </script>
+</body>
+</html>

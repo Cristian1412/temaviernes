@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparación Event vs CustomEvent</title>
+</head>
+<body>
+    <button id="miBoton">Despachar Eventos</button>
+
+    <script>
+        const boton = document.getElementById("miBoton");
+
+        boton.addEventListener("eventoSimple", function(event) {
+            console.log("EventoSimple despachado", event);
+        });
+
+        boton.addEventListener("eventoPersonalizado", function(event) {
+            console.log("EventoPersonalizado despachado", event);
+            console.log("Datos adicionales:", event.detail);
+        });
+
+        boton.addEventListener("click", function() {
+            const eventoSimple = new Event("eventoSimple");
+            const eventoPersonalizado = new CustomEvent("eventoPersonalizado", {
+                detail: { mensaje: "Este es un CustomEvent con datos adicionales" }
+            });
+
+            boton.dispatchEvent(eventoSimple);
+            boton.dispatchEvent(eventoPersonalizado);
+        });
+    </script>
+</body>
+</html>

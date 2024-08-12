@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo de removeEventListener</title>
+</head>
+<body>
+    <button id="miBoton">Haz clic aquí</button>
+    <button id="removerEvento">Remover Evento</button>
+
+    <script>
+        const boton = document.getElementById("miBoton");
+
+        function cambiarColor() {
+            boton.style.backgroundColor = "lightblue";
+            console.log("Botón clicado");
+        }
+
+        boton.addEventListener("click", cambiarColor);
+
+        const botonRemover = document.getElementById("removerEvento");
+        botonRemover.addEventListener("click", function() {
+            boton.removeEventListener("click", cambiarColor);
+            console.log("Evento removido");
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propiedades del Evento</title>
+</head>
+<body>
+    <ul>
+        <li>Elemento 1</li>
+        <li>Elemento 2</li>
+        <li>Elemento 3</li>
+    </ul>
+
+    <script>
+        const items = document.querySelectorAll("li");
+
+        items.forEach(item => {
+            item.addEventListener("click", function(event) {
+                console.log("Tipo de evento:", event.type);
+                console.log("Elemento objetivo:", event.target);
+                console.log("Marca de tiempo:", event.timeStamp);
+            });
+        });
+    </script>
+</body>
+</html>
